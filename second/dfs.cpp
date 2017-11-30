@@ -99,82 +99,83 @@ void shengchengmigong(){
     for(check = 0; check < 1000; ++check){
 		road[i].lastx = road[i-1].x;
  		road[i].lasty = road[i-1].y;				  //最后复制此代码，设计出5条通向死路的路径作为干扰
-	    if((road[i].lasty - 1 >= 0 && ditu[road[i].lastx][road[i].lasty - 1] == 1 && ditu[road[i].lastx + 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx][road[i].lasty - 2] == 1) || (road[i].lastx + 1 < w && ditu[road[i].lastx + 1][road[i].lasty] == 1 && ditu[road[i].lastx + 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx + 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx + 2][road[i].lasty] == 1)|| (road[i].lasty + 1 < r && ditu[road[i].lastx][road[i].lasty + 1] == 1  && ditu[road[i].lastx + 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx][road[i].lasty + 2] == 1) || (road[i].lastx - 1 >=  0 && ditu[road[i].lastx - 1][road[i].lasty] == 1 && ditu[road[i].lastx - 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx - 2][road[i].lasty] == 1)){	        
+	    if((road[i].lasty - 1 >= 0 && ditu[road[i].lastx][road[i].lasty - 1] == 1) || (road[i].lastx + 1 < w && ditu[road[i].lastx + 1][road[i].lasty] == 1) || (road[i].lasty + 1 < r && ditu[road[i].lastx][road[i].lasty + 1] == 1)){	        
+	        
 	        int tmp = rand() % 4;
 	        tmp++;
 	        switch(tmp){
 	            case 1:
-	                if(road[i].lasty - 1 >= 0 && ditu[road[i].lastx][road[i].lasty - 1] == 1 && ditu[road[i].lastx + 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx][road[i].lasty - 2] == 1) {
+	                if(road[i].lasty - 1 >= 0 && ditu[road[i].lastx][road[i].lasty - 1] == 1) {
 		                road[i].x = road[i].lastx;
 		                road[i].y = road[i].lasty - 1;
 		                ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lastx + 1 < w && ditu[road[i].lastx + 1][road[i].lasty] == 1 && ditu[road[i].lastx + 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx + 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx + 2][road[i].lasty] == 1) {
+	                }else if(road[i].lastx + 1 < w && ditu[road[i].lastx + 1][road[i].lasty] == 1) {
 	                    road[i].x = road[i].lastx + 1;
 	                    road[i].y = road[i].lasty;
 	                    ditu[road[i].x][road[i].y] = 0;
                   
-	                }else if(road[i].lastx - 1 >=  0 && ditu[road[i].lastx - 1][road[i].lasty] == 1 && ditu[road[i].lastx - 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx - 2][road[i].lasty] == 1) {
+	                }else if(road[i].lastx - 1 >=  0 && ditu[road[i].lastx - 1][road[i].lasty] == 1) {
 	                    road[i].x = road[i].lastx - 1;
 	                    road[i].y = road[i].lasty;
 	                    ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lasty + 1 < r && ditu[road[i].lastx][road[i].lasty + 1] == 1  && ditu[road[i].lastx + 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx][road[i].lasty + 2] == 1) {
+	                }else if(road[i].lasty + 1 < r && ditu[road[i].lastx][road[i].lasty + 1] == 1) {
 	                    road[i].x = road[i].lastx;
 	                    road[i].y = road[i].lasty + 1;
 	                    ditu[road[i].x][road[i].y] = 0;
 	                }
 	            break;
 	            case 2:
-	                if(road[i].lastx + 1 < w && ditu[road[i].lastx + 1][road[i].lasty] == 1 && ditu[road[i].lastx + 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx + 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx + 2][road[i].lasty] == 1) {
+	                if(road[i].lastx + 1 < w && ditu[road[i].lastx + 1][road[i].lasty] == 1) {
 	                    road[i].x = road[i].lastx + 1;
 	                    road[i].y = road[i].lasty;
 	                    ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lastx - 1 >=  0 && ditu[road[i].lastx - 1][road[i].lasty] == 1 && ditu[road[i].lastx - 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx - 2][road[i].lasty] == 1) {
+	                }else if(road[i].lastx - 1 >=  0 && ditu[road[i].lastx - 1][road[i].lasty] == 1) {
 	                    road[i].x = road[i].lastx - 1;
 	                    road[i].y = road[i].lasty;
 	                    ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lasty - 1 >= 0 && ditu[road[i].lastx][road[i].lasty - 1] == 1 && ditu[road[i].lastx + 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx][road[i].lasty - 2] == 1) {
+	                }else if(road[i].lasty - 1 >= 0 && ditu[road[i].lastx][road[i].lasty - 1] == 1) {
 		                road[i].x = road[i].lastx;
 		                road[i].y = road[i].lasty - 1;
 		                ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lasty + 1 < r && ditu[road[i].lastx][road[i].lasty + 1] == 1  && ditu[road[i].lastx + 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx][road[i].lasty + 2] == 1) {
+	                }else if(road[i].lasty + 1 < r && ditu[road[i].lastx][road[i].lasty + 1] == 1) {
 	                    road[i].x = road[i].lastx;
 	                    road[i].y = road[i].lasty + 1;
 	                    ditu[road[i].x][road[i].y] = 0;
 	                }
 	            break;
 	            case 3:
-	                if(road[i].lasty + 1 < r && ditu[road[i].lastx][road[i].lasty + 1] == 1  && ditu[road[i].lastx + 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx][road[i].lasty + 2] == 1) {
+	                if(road[i].lasty + 1 < r && ditu[road[i].lastx][road[i].lasty + 1] == 1) {
 	                    road[i].x = road[i].lastx;
 	                    road[i].y = road[i].lasty + 1;
 	                    ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lastx - 1 >=  0 && ditu[road[i].lastx - 1][road[i].lasty] == 1 && ditu[road[i].lastx - 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx - 2][road[i].lasty] == 1) {
+	                }else if(road[i].lastx - 1 >=  0 && ditu[road[i].lastx - 1][road[i].lasty] == 1) {
 	                    road[i].x = road[i].lastx - 1;
 	                    road[i].y = road[i].lasty;
 	                    ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lasty - 1 >= 0 && ditu[road[i].lastx][road[i].lasty - 1] == 1 && ditu[road[i].lastx + 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx][road[i].lasty - 2] == 1) {
+	                }else if(road[i].lasty - 1 >= 0 && ditu[road[i].lastx][road[i].lasty - 1] == 1) {
 		                road[i].x = road[i].lastx;
 		                road[i].y = road[i].lasty - 1;
 		                ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lastx + 1 < w && ditu[road[i].lastx + 1][road[i].lasty] == 1 && ditu[road[i].lastx + 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx + 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx + 2][road[i].lasty] == 1) {
+	                }else if(road[i].lastx + 1 < w && ditu[road[i].lastx + 1][road[i].lasty] == 1) {
 	                    road[i].x = road[i].lastx + 1;
 	                    road[i].y = road[i].lasty;
 	                    ditu[road[i].x][road[i].y] = 0;
 	                }
 	            break;
 	            case 4:
-	                if(road[i].lastx - 1 >=  0 && ditu[road[i].lastx - 1][road[i].lasty] == 1 && ditu[road[i].lastx - 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx - 2][road[i].lasty] == 1) {
+	                if(road[i].lastx - 1 >=  0 && ditu[road[i].lastx - 1][road[i].lasty] == 1) {
 	                    road[i].x = road[i].lastx - 1;
 	                    road[i].y = road[i].lasty;
 	                    ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lasty - 1 >= 0 && ditu[road[i].lastx][road[i].lasty - 1] == 1 && ditu[road[i].lastx + 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx][road[i].lasty - 2] == 1) {
+	                }else if(road[i].lasty - 1 >= 0 && ditu[road[i].lastx][road[i].lasty - 1] == 1) {
 		                road[i].x = road[i].lastx;
 		                road[i].y = road[i].lasty - 1;
 		                ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lastx + 1 < w && ditu[road[i].lastx + 1][road[i].lasty] == 1 && ditu[road[i].lastx + 1][road[i].lasty - 1] == 1 && ditu[road[i].lastx + 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx + 2][road[i].lasty] == 1) {
+	                }else if(road[i].lastx + 1 < w && ditu[road[i].lastx + 1][road[i].lasty] == 1) {
 	                    road[i].x = road[i].lastx + 1;
 	                    road[i].y = road[i].lasty;
 	                    ditu[road[i].x][road[i].y] = 0;
-	                }else if(road[i].lasty + 1 < r && ditu[road[i].lastx][road[i].lasty + 1] == 1  && ditu[road[i].lastx + 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx - 1][road[i].lasty + 1] == 1 && ditu[road[i].lastx][road[i].lasty + 2] == 1) {
+	                }else if(road[i].lasty + 1 < r && ditu[road[i].lastx][road[i].lasty + 1] == 1) {
 	                    road[i].x = road[i].lastx;
 	                    road[i].y = road[i].lasty + 1;
 	                    ditu[road[i].x][road[i].y] = 0;
